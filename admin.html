@@ -6,35 +6,35 @@
 <title>Мир покупок · Админ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg-primary:#12060D;
-    --bg-card:#1E0E18;
-    --bg-card-hover:#2B1523;
-    --accent-color:#FF5FA2;
-    --accent-hover:#FF3D8E;
-    --accent-neon:#FFB6D3;
-    --text-primary:#FFF1F6;
-    --text-secondary:#C79AAF;
-    --border-color:#3A1F2E;
+    --bg-primary:#F8F4F6;
+    --bg-card:#FFFFFF;
+    --bg-card-hover:#F3E9EE;
+    --accent-color:#A86A86;
+    --accent-hover:#94587A;
+    --accent-neon:#C28CA7;
+    --text-primary:#2B2128;
+    --text-secondary:#8F7684;
+    --border-color:#EBD9E1;
     --border-radius-card:14px;
     --border-radius-btn:10px;
     --font-heading:'Montserrat',sans-serif;
     --font-body:'Inter',sans-serif;
-    --font-logo:'Pacifico','Marck Script',cursive;
+    --font-logo:'Cormorant Garamond',Georgia,serif;
 
     --bg:var(--bg-primary);
     --bg-elev:var(--bg-card);
     --text:var(--text-primary);
     --muted:var(--text-secondary);
-    --muted-dim:#8F6478;
+    --muted-dim:#BBA4B0;
     --accent:var(--accent-color);
     --accent-soft:var(--accent-neon);
-    --accent-dim:rgba(255,95,162,.12);
+    --accent-dim:rgba(168,106,134,.12);
     --line:var(--border-color);
     --bg-elev-2:var(--bg-card-hover);
-    --line-soft:rgba(148,163,184,.06);
+    --line-soft:rgba(168,106,134,.12);
     --danger:#FF6B6B;
     --ok:#6BCB77;
     --ease:cubic-bezier(.22,1,.36,1);
@@ -51,15 +51,15 @@
   body::before{
     content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
     background:
-      radial-gradient(ellipse 80% 50% at 20% 40%, rgba(255,95,162,.05), transparent 60%),
-      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,95,162,.03), transparent 50%);
+      radial-gradient(ellipse 80% 50% at 20% 40%, rgba(168,106,134,.05), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(168,106,134,.03), transparent 50%);
   }
   .orb{
-    position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;
+    display:none;position:fixed;border-radius:50%;pointer-events:none;z-index:0;
     opacity:.35;animation:orbFloat 20s ease-in-out infinite;
   }
-  .orb-1{width:250px;height:250px;background:rgba(255,95,162,.07);top:-80px;right:-60px;animation-delay:0s;}
-  .orb-2{width:200px;height:200px;background:rgba(255,95,162,.05);bottom:20%;left:-40px;animation-delay:-8s;animation-duration:22s;}
+  .orb-1{width:250px;height:250px;background:rgba(168,106,134,.07);top:-80px;right:-60px;animation-delay:0s;}
+  .orb-2{width:200px;height:200px;background:rgba(168,106,134,.05);bottom:20%;left:-40px;animation-delay:-8s;animation-duration:22s;}
   @keyframes orbFloat{
     0%,100%{transform:translate(0,0) scale(1);}
     33%{transform:translate(25px,-25px) scale(1.08);}
@@ -77,8 +77,8 @@
   h1{font-family:var(--font-heading);font-size:22px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;margin:0;}
   .muted{color:var(--muted);font-size:12px;}
   .brand{display:flex;align-items:center;gap:10px;justify-content:center;}
-  .brand-mark{flex:0 0 auto;filter:drop-shadow(0 0 8px rgba(255,95,162,.4));animation:markPulse 3s ease-in-out infinite;}
-  @keyframes markPulse{0%,100%{filter:drop-shadow(0 0 8px rgba(255,95,162,.4));}50%{filter:drop-shadow(0 0 14px rgba(255,95,162,.6));}}
+  .brand-mark{flex:0 0 auto;filter:drop-shadow(0 0 8px rgba(168,106,134,.4));}
+  @keyframes markPulse{0%,100%{filter:drop-shadow(0 0 8px rgba(168,106,134,.4));}50%{filter:drop-shadow(0 0 14px rgba(168,106,134,.6));}}
   .brand-mark{border-radius:50%;}
   @keyframes markRotate{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
   .brand-text{display:flex;flex-direction:column;line-height:1;text-align:left;}
@@ -103,9 +103,9 @@
   .swatch-opt.active{border-color:var(--accent);transform:scale(1.1);}
   .swatch-opt.active::after{border-color:var(--accent-dim);}
   .btn{
-    background:linear-gradient(135deg,var(--accent-soft),var(--accent));color:#2A0A18;border:none;padding:14px 20px;
+    background:linear-gradient(135deg,var(--accent-soft),var(--accent));color:#FFFFFF;border:none;padding:14px 20px;
     font-family:var(--font-body);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
-    border-radius:8px;font-weight:600;cursor:pointer;box-shadow:0 6px 20px rgba(255,95,162,.25);
+    border-radius:8px;font-weight:600;cursor:pointer;box-shadow:0 6px 20px rgba(168,106,134,.25);
     transition:all .2s var(--ease);position:relative;overflow:hidden;
   }
   .btn::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(255,255,255,.2),transparent);transform:translateX(-100%);transition:transform .5s;}
@@ -167,7 +167,7 @@
     padding:14px 16px;transition:all .25s var(--ease);position:relative;overflow:hidden;
   }
   .stat-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-dim),transparent);opacity:0;transition:opacity .3s;}
-  .stat-card:hover{border-color:rgba(255,95,162,.25);transform:translateY(-2px);}
+  .stat-card:hover{border-color:rgba(168,106,134,.25);transform:translateY(-2px);}
   .stat-card:hover::before{opacity:1;}
   .stat-num{font-family:var(--font-body);font-size:26px;font-weight:600;color:var(--text);line-height:1;position:relative;}
   .stat-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px;position:relative;}
@@ -179,7 +179,7 @@
     transition:all .25s var(--ease);position:relative;overflow:hidden;
   }
   .card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-dim),transparent);opacity:0;transition:opacity .3s;}
-  .card:hover{border-color:rgba(255,95,162,.25);transform:translateY(-2px);}
+  .card:hover{border-color:rgba(168,106,134,.25);transform:translateY(-2px);}
   .card:hover::before{opacity:1;}
   @keyframes cardIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
   .thumb{
@@ -195,23 +195,23 @@
 
   .fab{
     position:fixed;right:20px;bottom:24px;width:58px;height:58px;border-radius:50%;
-    background:linear-gradient(135deg,var(--accent-soft),var(--accent));color:#2A0A18;font-size:28px;border:none;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(255,95,162,.4);
+    background:linear-gradient(135deg,var(--accent-soft),var(--accent));color:#FFFFFF;font-size:28px;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(168,106,134,.4);
     transition:all .25s var(--ease);z-index:45;
   }
   .fab::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--accent);opacity:0;transition:opacity .3s;}
   .fab:active{transform:scale(.9);}
-  .fab:hover{box-shadow:0 12px 40px rgba(255,95,162,.55);transform:translateY(-2px) scale(1.05);}
+  .fab:hover{box-shadow:0 12px 40px rgba(168,106,134,.55);transform:translateY(-2px) scale(1.05);}
   .fab:hover::before{opacity:.2;}
 
   .overlay{
     position:fixed;inset:0;background:rgba(0,0,0,.65);display:flex;align-items:flex-end;justify-content:center;z-index:50;
-    opacity:0;pointer-events:none;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+    opacity:0;pointer-events:none;
     transition:opacity .35s var(--ease);
   }
   .overlay.open{opacity:1;pointer-events:auto;}
   .modal{
-    background:linear-gradient(180deg,rgba(30,14,24,.98),rgba(18,6,13,.99));border-top:1.5px solid var(--line);border-radius:20px 20px 0 0;
+    background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,244,246,.99));border-top:1.5px solid var(--line);border-radius:20px 20px 0 0;
     max-width:640px;width:100%;max-height:90vh;overflow-y:auto;padding:20px 22px 32px;
     transform:translateY(24px);transition:transform .38s var(--ease-sheet);
     box-shadow:0 -24px 70px rgba(0,0,0,.55);
@@ -238,11 +238,11 @@
   .photo-tile.cover::after{
     content:"обложка";position:absolute;left:0;right:0;bottom:0;
     font-size:9px;letter-spacing:.06em;text-transform:uppercase;text-align:center;
-    color:var(--accent);background:rgba(18,6,13,.8);padding:4px 0;font-weight:500;
+    color:var(--accent);background:rgba(248,244,246,.8);padding:4px 0;font-weight:500;
   }
   .photo-tile-remove{
     position:absolute;top:5px;right:5px;width:22px;height:22px;border-radius:50%;
-    background:rgba(18,6,13,.8);border:1px solid rgba(255,255,255,.15);color:#fff;
+    background:rgba(248,244,246,.8);border:1px solid rgba(255,255,255,.15);color:#fff;
     font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center;
     cursor:pointer;transition:all .15s;
   }
@@ -250,12 +250,12 @@
   .photo-tile-remove:hover{background:var(--danger);border-color:var(--danger);}
   .photo-tile-move{
     position:absolute;top:5px;width:22px;height:22px;border-radius:50%;
-    background:rgba(18,6,13,.8);border:1px solid rgba(255,255,255,.15);color:#fff;
+    background:rgba(248,244,246,.8);border:1px solid rgba(255,255,255,.15);color:#fff;
     font-size:11px;line-height:1;display:flex;align-items:center;justify-content:center;
     cursor:pointer;transition:all .15s;
   }
   .photo-tile-move:active{transform:scale(.82);}
-  .photo-tile-move:hover{background:var(--accent);color:#2A0A18;border-color:var(--accent);}
+  .photo-tile-move:hover{background:var(--accent);color:#FFFFFF;border-color:var(--accent);}
   .photo-tile-move.left{left:5px;}
   .photo-tile-move.right{left:30px;}
   .photo-tile-move.disabled{opacity:.25;pointer-events:none;}
@@ -278,7 +278,7 @@
     pointer-events:none;max-width:calc(100% - 40px);width:max-content;
   }
   .toast{
-    pointer-events:auto;background:var(--accent);color:#2A0A18;
+    pointer-events:auto;background:var(--accent);color:#FFFFFF;
     padding:11px 20px;border-radius:999px;font-size:12px;max-width:100%;font-weight:600;
     box-shadow:0 10px 30px rgba(0,0,0,.45);
     opacity:0;transform:translateY(16px) scale(.94);
@@ -298,9 +298,9 @@
     transition:all .2s var(--ease);font-weight:500;
   }
   .tab-btn:active{transform:scale(.95);}
-  .tab-btn.active{color:#2A0A18;background:linear-gradient(135deg,var(--accent-soft),var(--accent));box-shadow:0 4px 16px rgba(255,95,162,.3);font-weight:600;}
+  .tab-btn.active{color:#FFFFFF;background:linear-gradient(135deg,var(--accent-soft),var(--accent));box-shadow:0 4px 16px rgba(168,106,134,.3);font-weight:600;}
   .tab-badge{
-    display:inline-block;background:var(--accent);color:#2A0A18;font-size:10px;
+    display:inline-block;background:var(--accent);color:#FFFFFF;font-size:10px;
     border-radius:999px;min-width:16px;height:16px;line-height:16px;text-align:center;
     margin-left:6px;padding:0 4px;font-weight:700;
   }
@@ -311,7 +311,7 @@
     transition:all .25s var(--ease);position:relative;overflow:hidden;
   }
   .order-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-dim),transparent);opacity:0;transition:opacity .3s;}
-  .order-card:hover{border-color:rgba(255,95,162,.25);transform:translateY(-2px);}
+  .order-card:hover{border-color:rgba(168,106,134,.25);transform:translateY(-2px);}
   .order-card:hover::before{opacity:1;}
   .order-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;position:relative;z-index:1;}
   .order-id{font-family:var(--font-heading);font-size:15px;font-weight:700;text-transform:uppercase;}
@@ -342,6 +342,17 @@
 
   .reveal{opacity:0;transform:translateY(16px);transition:all .5s var(--ease);}
   .reveal.visible{opacity:1;transform:translateY(0);}
+  /* --- light mauve theme + perf --- */
+  .logo{background:none!important;-webkit-text-fill-color:currentColor;color:#8E6277;animation:none!important;font-size:26px;font-weight:600;font-style:italic;}
+  .brand .logo{color:#8E6277;font-size:24px;font-weight:600;font-style:italic;}
+  .logo-sub{letter-spacing:.2em;}
+  .card{content-visibility:auto;contain-intrinsic-size:auto 320px;animation-duration:.35s;}
+  .card-media{background:#fff;box-shadow:0 6px 20px rgba(168,106,134,.1);}
+  .card-name{color:#2B2128;}
+  .btn-primary,.tab-btn.active,.fab{color:#fff;}
+  #gridMore{text-align:center;padding:4px 20px 28px;min-height:8px;}
+  #gridMore button{background:#fff;border:1px solid var(--line);color:#8E6277;border-radius:999px;padding:12px 28px;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 6px 18px rgba(168,106,134,.12);}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 </style></style>
 </head>
 <body>
@@ -353,14 +364,14 @@
     <svg class="brand-mark" width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Мир покупок">
         <defs>
           <linearGradient id="brandGradLogin" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#FF9CC6"/><stop offset="1" stop-color="#F0207C"/>
+            <stop offset="0" stop-color="#E3B3C8"/><stop offset="1" stop-color="#9E5878"/>
           </linearGradient>
         </defs>
         <circle cx="32" cy="32" r="30" fill="url(#brandGradLogin)"/>
         <ellipse cx="32" cy="33" rx="27" ry="9" transform="rotate(-25 32 33)" stroke="#fff" stroke-opacity=".5" stroke-width="1.6"/>
         <path d="M25 27v-3a7 7 0 0 1 14 0v3" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
         <path d="M20 27h24l2.6 22.2a3 3 0 0 1-3 3.3H20.4a3 3 0 0 1-3-3.3L20 27Z" fill="#fff"/>
-        <path d="M32 46.5c-5-3.4-7.5-5.8-7.5-8.7a3.9 3.9 0 0 1 7.5-1.6 3.9 3.9 0 0 1 7.5 1.6c0 2.9-2.5 5.3-7.5 8.7Z" fill="#F0207C"/>
+        <path d="M32 46.5c-5-3.4-7.5-5.8-7.5-8.7a3.9 3.9 0 0 1 7.5-1.6 3.9 3.9 0 0 1 7.5 1.6c0 2.9-2.5 5.3-7.5 8.7Z" fill="#9E5878"/>
         <path d="M49 11l1.5 3.9 3.9 1.5-3.9 1.5L49 21.8l-1.5-3.9-3.9-1.5 3.9-1.5L49 11Z" fill="#fff"/>
       </svg>
     <div class="brand-text">
@@ -382,14 +393,14 @@
       <svg class="brand-mark" width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Мир покупок">
         <defs>
           <linearGradient id="brandGradTop" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#FF9CC6"/><stop offset="1" stop-color="#F0207C"/>
+            <stop offset="0" stop-color="#E3B3C8"/><stop offset="1" stop-color="#9E5878"/>
           </linearGradient>
         </defs>
         <circle cx="32" cy="32" r="30" fill="url(#brandGradTop)"/>
         <ellipse cx="32" cy="33" rx="27" ry="9" transform="rotate(-25 32 33)" stroke="#fff" stroke-opacity=".5" stroke-width="1.6"/>
         <path d="M25 27v-3a7 7 0 0 1 14 0v3" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
         <path d="M20 27h24l2.6 22.2a3 3 0 0 1-3 3.3H20.4a3 3 0 0 1-3-3.3L20 27Z" fill="#fff"/>
-        <path d="M32 46.5c-5-3.4-7.5-5.8-7.5-8.7a3.9 3.9 0 0 1 7.5-1.6 3.9 3.9 0 0 1 7.5 1.6c0 2.9-2.5 5.3-7.5 8.7Z" fill="#F0207C"/>
+        <path d="M32 46.5c-5-3.4-7.5-5.8-7.5-8.7a3.9 3.9 0 0 1 7.5-1.6 3.9 3.9 0 0 1 7.5 1.6c0 2.9-2.5 5.3-7.5 8.7Z" fill="#9E5878"/>
         <path d="M49 11l1.5 3.9 3.9 1.5-3.9 1.5L49 21.8l-1.5-3.9-3.9-1.5 3.9-1.5L49 11Z" fill="#fff"/>
       </svg>
       <div class="brand-text">
@@ -650,6 +661,7 @@ function updateStats(){
   document.getElementById('statQuestionsNew').textContent = questions.filter(q=>q.status==='new').length;
 }
 
+const thumbUrl = u => (u && /^\/uploads\/[^\/]+\.(jpe?g|png|webp)$/i.test(u)) ? u.replace(/\.[^.]+$/, '_t.jpg') : u;
 async function loadProducts(){
   products = await api('/api/admin/products');
   renderList();
@@ -664,7 +676,7 @@ function renderList(){
     return;
   }
   list.innerHTML = products.map(p => {
-    const cover = (p.images && p.images.length) ? p.images[0] : p.image;
+    const cover = thumbUrl((p.images && p.images.length) ? p.images[0] : p.image);
     const photoCount = (p.images && p.images.length) ? p.images.length : (p.image ? 1 : 0);
     const badgeTag = p.badge && BADGE_LABELS[p.badge] ? ` · <span style="color:var(--accent);">${BADGE_LABELS[p.badge]}</span>` : '';
     return `

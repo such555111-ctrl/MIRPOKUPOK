@@ -508,7 +508,21 @@ def create_question():
 
 @app.route("/uploads/<path:filename>", methods=["GET"])
 def uploaded_file(filename):
-    return send_from_directory(UPLOAD_DIR, filename)
+    # миниатюра для каталога; для старых фото создаётся «на лету»
+    if filename.endswith("_t.jpg") and not os.path.exists(os.path.join(UPLOAD_DIR, filename)):
+        stem = filename[:-6]
+        for e in (".jpg", ".jpeg", ".png", ".webp"):
+            src = os.path.join(UPLOAD_DIR, stem + e)
+            if os.path.exists(src):
+                try:
+                    from PIL import Image, ImageOps
+                    im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
+                    im.thumbnail((640, 640))
+                    im.save(os.path.join(UPLOAD_DIR, filename), "JPEG", quality=78, optimize=True)
+                except Exception:
+                    return send_from_directory(UPLOAD_DIR, stem + e, max_age=86400)
+                break
+    return send_from_directory(UPLOAD_DIR, filename, max_age=31536000)
 
 
 @app.route("/admin", methods=["GET"])
@@ -626,8 +640,30 @@ def admin_upload():
     ext = os.path.splitext(file.filename)[1].lower()
     if ext not in ALLOWED_IMAGE_EXT:
         abort(400, description="Недопустимый формат файла")
-    filename = f"{uuid.uuid4().hex}{ext}"
-    file.save(os.path.join(UPLOAD_DIR, filename))
+    uid = uuid.uuid4().hex
+    filename = f"{uid}{ext}"
+    path = os.path.join(UPLOAD_DIR, filename)
+    try:
+        from PIL import Image, ImageOps
+        if ext == ".gif":
+            raise RuntimeError("skip")
+        img = ImageOps.exif_transpose(Image.open(file.stream))
+        if img.mode in ("RGBA", "LA", "P"):
+            img = img.convert("RGBA")
+            bg = Image.new("RGB", img.size, (255, 255, 255))
+            bg.paste(img, mask=img.split()[-1])
+            img = bg
+        else:
+            img = img.convert("RGB")
+        full = img.copy()
+        full.thumbnail((1600, 1600))
+        filename = f"{uid}.jpg"
+        full.save(os.path.join(UPLOAD_DIR, filename), "JPEG", quality=82, optimize=True, progressive=True)
+        img.thumbnail((640, 640))
+        img.save(os.path.join(UPLOAD_DIR, f"{uid}_t.jpg"), "JPEG", quality=78, optimize=True)
+    except Exception:
+        file.stream.seek(0)
+        file.save(path)
     return jsonify({"url": f"/uploads/{filename}"}), 201
 
 
